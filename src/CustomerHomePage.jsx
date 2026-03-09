@@ -29,7 +29,7 @@ export default function CustomerHomePage() {
       const data = await response.json();
       if(data)
      { 
-      setUsername(data.user?.name || 'Guest'); // Extract username
+      setUsername(data.user?.name || '');// Extract username
       setProducts(data.products || []);
     }else{
       setProducts([]);
@@ -44,7 +44,7 @@ export default function CustomerHomePage() {
   const fetchCartCount = async () => {
     setIsCartLoading(true); // Set loading state
     try {
-      const response = await fetch(`http://localhost:8080/api/cart/items/count?username=${username}`, {
+      const response = await fetch(`http://localhost:8080/api/cart/items/count`, {
         credentials: 'include', // Include authToken as a cookie
       });
       const count = await response.json();
