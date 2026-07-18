@@ -66,7 +66,7 @@ const AdminDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/auth/logout", {
+      const response = await fetch("/api/auth/logout", {
         method: "POST",
         credentials: "include",
       });
@@ -84,7 +84,7 @@ const AdminDashboard = () => {
   // Handlers for each modal action
   const handleAddProductSubmit = async (productData) => {
     try {
-      const response = await fetch("http://localhost:8080/admin/products/add", {
+      const response = await fetch("/admin/products/add", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -103,7 +103,7 @@ const AdminDashboard = () => {
   const handleDeleteProductSubmit = async ({ productId }) => {
     try {
       const response = await fetch(
-        "http://localhost:8080/admin/products/delete",
+        "/admin/products/delete",
         {
           method: "DELETE",
           credentials: "include",
@@ -128,7 +128,7 @@ const AdminDashboard = () => {
 
   const handleViewUserSubmit = async ({ userId }) => {
     try {
-      const response = await fetch("http://localhost:8080/admin/user/getbyid", {
+      const response = await fetch("/admin/user/getbyid", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -158,7 +158,7 @@ const AdminDashboard = () => {
       try {
         console.log("Fetching user details for ID:", data.userId); // Debugging
         const response = await fetch(
-          "http://localhost:8080/admin/user/getbyid",
+          "/admin/user/getbyid",
           {
             method: "POST",
             credentials: "include",
@@ -187,7 +187,7 @@ const AdminDashboard = () => {
       try {
         console.log("Updating user details:", data); // Debugging
         const response = await fetch(
-          "http://localhost:8080/admin/user/modify",
+          "/admin/user/modify",
           {
             method: "PUT",
             credentials: "include",
@@ -217,7 +217,7 @@ const AdminDashboard = () => {
   const handleMonthlyBusiness = async (data) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/admin/business/monthly?month=${data?.month}&year=${data?.year}`,
+        `/admin/business/monthly?month=${data?.month}&year=${data?.year}`,
         {
           method: "GET",
           credentials: "include",
@@ -245,7 +245,7 @@ const AdminDashboard = () => {
   const handleDailyBusiness = async (data) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/admin/business/daily?date=${data?.date}`,
+        `/admin/business/daily?date=${data?.date}`,
         {
           method: "GET",
           credentials: "include",
@@ -273,7 +273,7 @@ const AdminDashboard = () => {
   const handleYearlyBusiness = async (data) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/admin/business/yearly?year=${data?.year}`,
+        `/admin/business/yearly?year=${data?.year}`,
         {
           method: "GET",
           credentials: "include",
@@ -301,7 +301,7 @@ const AdminDashboard = () => {
   const handleOverallBusiness = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/admin/business/overall`,
+        `/admin/business/overall`,
         {
           method: "GET",
           credentials: "include",

@@ -503,7 +503,7 @@ const ModifyUserFormComponent = ({ onClose }) => {
     if (!userId) return;
 
     try {
-      const response = await fetch("http://localhost:8080/admin/user/getbyid", {
+      const response = await fetch("/admin/user/getbyid", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -532,7 +532,7 @@ const ModifyUserFormComponent = ({ onClose }) => {
     const role = formData.get("role");
 
     try {
-      const response = await fetch("http://localhost:8080/admin/user/modify", {
+      const response = await fetch("/admin/user/modify", {
         method: "PUT",
         credentials: "include",
         headers: {

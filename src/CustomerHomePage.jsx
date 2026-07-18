@@ -23,7 +23,7 @@ export default function CustomerHomePage() {
   const fetchProducts = async (category = '') => {
     try {
       const response = await fetch(
-  `http://localhost:8080/api/products${category ? `?category=${category.toUpperCase()}` : '?category=SHIRTS'}`,
+  `/api/products${category ? `?category=${category.toUpperCase()}` : '?category=SHIRTS'}`,
   { credentials: 'include' }
 );
       const data = await response.json();
@@ -44,7 +44,7 @@ export default function CustomerHomePage() {
   const fetchCartCount = async () => {
     setIsCartLoading(true); // Set loading state
     try {
-      const response = await fetch(`http://localhost:8080/api/cart/items/count`, {
+      const response = await fetch(`/api/cart/items/count`, {
         credentials: 'include', // Include authToken as a cookie
       });
       const count = await response.json();
@@ -68,7 +68,7 @@ export default function CustomerHomePage() {
       return;
     }
     try {
-      const response = await fetch('http://localhost:8080/api/cart/add', {
+      const response = await fetch('/api/cart/add', {
         credentials: 'include',
         method: 'POST',
         body: JSON.stringify({ username, productId }), // Include username and productId in the request
